@@ -4,16 +4,17 @@ const Attribute = props => {
 
     const [attribute, setAttribute] = useState("")
     const [selectedSensitivity, setSensitivity] = useState("Quasi-identifying")
+    const { name, index } = props;
 
     let content = (
         <div>
-            {props.name}
+            {name}
             <select
-            onChange = {props.handleTypeSelect}
+            onChange = {(e) => props.handleTypeSelect(e, name, index)}
             >
                 <option value="INSENSITIVE">Insensitive</option>
                 <option value="SENSITIVE">Sensitive</option>
-                <option selected value="QUASIIDENTIFYING">Quasi-identifying</option>
+                <option selected defaultValue value="QUASIIDENTIFYING">Quasi-identifying</option>
                 <option value="IDENTIFYING">Identifying</option>
             </select>
         </div>
