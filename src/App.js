@@ -24,7 +24,7 @@ const App = props =>{
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">
-            <h1 className="mt-5">Anononymize with AaaS</h1>
+            <h1 className="mt-5">Analyze with AaaS</h1>
             <Analyse/>
           </div>
         </div>
