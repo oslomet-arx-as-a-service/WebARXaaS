@@ -1,28 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import Attribute from './Attribute'
+import papaparse from 'papaparse';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css'
 
-
 const Anonymise = props => {
+
+  const {endpoint} = props
+
   let fileReader;
   const [currentData, setData] = useState("")
   const [attributes, setAttributes] = useState([])
-  const [endpoint, setEndpoint] = useState('http://localhost:8080/')
   const [arxResp, setArxResp] = useState()
   const attributeTypeModel = 'QUASIIDENTIFYING'
   const onFilesChange = file => {
-    // console.log(file);
-    fileReader = new FileReader();
-    fileReader.onloadend = handleFileRead;
-    fileReader.readAsText(file);
+    papaparse.parse(file, {
+      complete: function(results) {
+        if(results.data.length > 0){
+        let headers = results.data[0]
+        console.log(headers)
+        setAttributes(headers.map(field => ({ field, attributeTypeModel })))
+        setData(results.data)
+        }
+      }    
+    });
   };
 
   useEffect(() => {
     // console.log("Current data:", currentData)
-    // console.log("Current Attributes:", attributes)
-    console.log('attributes', attributes)
-    console.log('data:', currentData)
+     console.log("Current Attributes:", attributes)
   })
 
   const handleTypeSelect = ({ target }, field, index) => {
@@ -35,16 +41,6 @@ const Anonymise = props => {
     setTimeout(() => console.log(attributes), 1000)
   }
 
-
-
-
-  const handleFileRead = (e) => {
-    const fileContent = fileReader.result;
-    const datalines = fileContent.split("\n")
-    const headers = datalines[0].split(";")
-    setAttributes(headers.map(field => ({ field, attributeTypeModel })))
-    setData(datalines.map(line => (line.split(';'))))
-  };
 
   const handleAnalyse = (e) => {
     console.log('Button clicked')
@@ -62,7 +58,8 @@ const Anonymise = props => {
   }
 
   const analyseRequest = (payload) => {
-      fetch(endpoint + 'api/analyze', {
+    console.log(endpoint)
+      fetch(endpoint + '/api/analyze', {
         crossDomain:true,
         method: 'post',
         body: JSON.stringify(payload),
@@ -86,7 +83,6 @@ const Anonymise = props => {
         accept='.csv'
         onChange={e => onFilesChange(e.target.files[0])}
       />
-
       {attributes.map(({ field }, index) =>
         (<Attribute
           name = {field}
@@ -100,6 +96,7 @@ const Anonymise = props => {
           </button>
        
           <p>{[arxResp]}</p>
+          <graphAnalyzeResp arxResp></graphAnalyzeResp>
     </div>
   );
 
