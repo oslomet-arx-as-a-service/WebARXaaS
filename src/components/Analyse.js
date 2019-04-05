@@ -46,23 +46,11 @@ const Anonymise = props => {
         setAttributes(attributes)
       }    
     });
-
-
   }
 
-
-  const handleAnalyse = (e) => {
-    console.log('Button clicked')
-    console.log(JSON.stringify(buildPayload()))
+  const handleRequest = (e, service) => {
     const payload = buildPayload()
-    analyseRequest(payload)
-  }
-
-  const handleAnonymize = (e) => {
-    console.log('Button clicked')
-    console.log(JSON.stringify(buildPayload()))
-    const payload = buildPayload()
-    anonymizeRequest(payload)
+    request(payload, service)
   }
 
   const buildPayload = () => {
@@ -73,27 +61,9 @@ const Anonymise = props => {
     return jsonModel
   }
 
-  const analyseRequest = (payload) => {
+  const request = (payload, service) => {
     console.log(endpoint)
-      fetch(endpoint + '/api/analyze', {
-        crossDomain:true,
-        method: 'post',
-        body: JSON.stringify(payload),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).then(function(response) {
-        console.log(response)
-        return response.json();
-      }).then(function(data) {
-        console.log('Response:', data);
-        setArxResp(JSON.stringify(data))
-      });
-  }
-
-  const anonymizeRequest = (payload) => {
-    console.log(endpoint)
-      fetch(endpoint + '/api/anonymize', {
+      fetch(endpoint + '/api/' + service, {
         crossDomain:true,
         method: 'post',
         body: JSON.stringify(payload),
@@ -126,10 +96,10 @@ const Anonymise = props => {
           handleHierarchyUpload = {handleHierarchyUpload}
           />))}
 
-          <button onClick={(e) => handleAnalyse(e) }>
+          <button onClick={(e) => handleRequest(e, 'analyze') }>
             Analyze
           </button>
-          <button onClick={(e) => handleAnonymize(e) }>
+          <button onClick={(e) => handleRequest(e, 'anonymize') }>
           Anonymize
         </button>
        
