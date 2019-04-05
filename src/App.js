@@ -6,7 +6,7 @@ import Analyse from './components/Analyse';
 
 const App = props =>{
 
-  const [endpoint, setEndpoint] = useState('http://35.228.120.1:8080/')
+  const [endpoint, setEndpoint] = useState('http://35.228.120.1:8080')
 
   const endpointHandler = (e) => {
     if(e.target.value !== endpoint){
