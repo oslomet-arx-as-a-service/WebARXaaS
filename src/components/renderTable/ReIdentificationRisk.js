@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReactTable from "react-table";
 import 'react-table/react-table.css'
-const DisplayDistributionOfRisk = props => {
+const ReIdentificationRisk = props => {
 
     const { arxResp } = props
     
@@ -10,22 +10,20 @@ const DisplayDistributionOfRisk = props => {
         accessor: 'interval'
     },
     {
-        Header: 'RecordsWithRiskWithinInteval',
+        Header: 'RecordsWithRisk',
         accessor: 'recordsWithRiskWithinInteval'
     },
     {
-        Header: 'RecordsWithMaxmalRiskWithinInterval',
+        Header: 'RecordsWithMaxmalRisk',
         accessor: 'recordsWithMaxmalRiskWithinInterval'
     }]
 
     let content = (
         <div>
-            <ReactTable
-                data={arxResp.distributionOfRisk.riskIntervalList}
-                columns={columns}
-            />
+            <h3>Reidentification Risk</h3>
+               <p>{JSON.stringify(arxResp.reIdentificationRisk.measures)}</p>
         </div>
     )
     return content
 }
-export default DisplayDistributionOfRisk
+export default ReIdentificationRisk

@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import DisplayRiskInterval from './DisplayDistributionOfRisk';
+import DistributionOfRisk from './renderTable/DistributionOfRisk';
+import ReIdentificationRisk from './renderTable/ReIdentificationRisk';
+import DownloadAnonymizationData from './DownloadAnonymizationData';
 const Result = props => {
     const { arxResp } = props
+
 
     let anonymizeContent = (
         <div>
             <h4>Anonymize Result</h4>
             {JSON.stringify(props.arxResp)}
+            <DownloadAnonymizationData arxResp={arxResp}/>
         </div>
     )
     let analyzeContent = (
         <div>
             <h4>Analyze</h4>
-            <DisplayRiskInterval arxResp={arxResp} />
+            <DistributionOfRisk arxResp={arxResp} />
+            <ReIdentificationRisk arxResp={arxResp}/>
         </div>
     )
     let noAction = (<p>No Resposne exsists</p>)
