@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import DistributionOfRisk from './renderTable/DistributionOfRisk';
 import ReIdentificationRisk from './renderTable/ReIdentificationRisk';
 import DownloadAnonymizationData from './DownloadAnonymizationData';
@@ -20,7 +20,6 @@ const Result = props => {
             <ReIdentificationRisk arxResp={arxResp}/>
         </div>
     )
-    let noAction = (<p>No Resposne exsists</p>)
 
     let renderAction = (action) => {
         if (action === 'anonymize' && arxResp.anonymizeResult) {

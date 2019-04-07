@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import ReactTable from "react-table";
-import 'react-table/react-table.css'
+import React from 'react'
 import papaparse from 'papaparse';
 const DownloadAnonymizationData = props => {
 
@@ -10,7 +8,6 @@ const DownloadAnonymizationData = props => {
         var csv = papaparse.unparse(arxResp.anonymizeResult.data);
         console.log("Downloading csv")
         const element = document.createElement("a");
-        let text = "Hei"
         let csvData = new Blob([csv], {type: 'text/plain'});
         element.href = URL.createObjectURL(csvData);
         element.download = "myFile.txt";
@@ -23,7 +20,7 @@ const DownloadAnonymizationData = props => {
         <div>
             <h1>Download data</h1>
             <button onClick={(e) => handleDownloadCSV(e)}>
-                Download Anonymization Data as CSV
+                Export Anonymized Data as CSV
         </button>
         </div>
     )

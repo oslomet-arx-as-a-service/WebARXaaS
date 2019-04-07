@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Attribute from './Attribute'
 import papaparse from 'papaparse';
-import ReactTable from 'react-table';
-import 'react-table/react-table.css'
 import Result from './Result';
 
 const Anonymise = props => {

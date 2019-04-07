@@ -16,23 +16,17 @@ const App = props =>{
     
   let content = (
       <div className="App">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">ArxAaaS</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a className="navbar-brand" href="/">ArxAaaS</a>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Analyze <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Anonymize</a>
-          </li>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav">
+          
         </ul>
-      <div class="form-inline my-2 my-lg-0">
-
-      <input class="form-control mr-sm-2" type="search" placeholder="Api-Endpoint" aria-label="API-Endpoint" defaultValue={endpoint} onChange={endpointHandler}></input>
+      <div className="form-inline my-2 my-lg-0">
+      <input className="form-control mr-sm-2" type="search" placeholder="Api-Endpoint" aria-label="API-Endpoint" defaultValue={endpoint} onChange={endpointHandler}></input>
       </div>
         
       </div>
