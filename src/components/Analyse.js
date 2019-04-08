@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import Attribute from './Attribute'
 import papaparse from 'papaparse';
 import Result from './Result';
+import PrivacyModelManager from './PrivacyModelManager';
 
 const Anonymise = props => {
 
   const { endpoint } = props
   const [currentData, setData] = useState("")
   const [attributes, setAttributes] = useState([])
+  const [privacyModels, setPrivacyModels] = useState([{ 'privacyModel': 'KANONYMITY', params: { 'k': 3 } }])
   const [arxResp, setArxResp] = useState('')
   const [action, setAction] = useState('none')
   const attributeTypeModel = 'QUASIIDENTIFYING'
@@ -36,6 +38,17 @@ const Anonymise = props => {
     setTimeout(() => console.log(attributes), 1000)
   }
 
+  const handlePrivacyAdd = (model) => {
+    console.log("Adding privacy model: ", model)
+    privacyModels.push(model)
+    setPrivacyModels(privacyModels);
+    setTimeout(() => console.log(privacyModels), 1000)
+  }
+
+  const handlePrivacyRemove = () => {
+
+  }
+
   const handleHierarchyUpload = (file, field, index) => {
     papaparse.parse(file, {
       complete: function (hierarchy) {
@@ -58,7 +71,7 @@ const Anonymise = props => {
     let jsonModel = {}
     jsonModel['data'] = currentData
     jsonModel['attributes'] = attributes
-    jsonModel['privacyModels'] = [{ 'privacyModel': 'KANONYMITY', params: { 'k': 3 } }]
+    jsonModel['privacyModels'] = privacyModels
     return jsonModel
   }
 
@@ -97,6 +110,12 @@ const Anonymise = props => {
           handleHierarchyUpload={handleHierarchyUpload}
         />))}
 
+        <PrivacyModelManager
+        privacyModels={privacyModels}
+        handlePrivacyAdd={handlePrivacyAdd}
+        handlePrivacyRemove={handlePrivacyRemove}
+        />
+
       <button onClick={(e) => handleRequest(e, 'analyze')}>
         Analyze
           </button>
@@ -109,6 +128,9 @@ const Anonymise = props => {
         arxResp={arxResp}
         action={action}
       />
+
+<br/>
+
     </div>
   );
 

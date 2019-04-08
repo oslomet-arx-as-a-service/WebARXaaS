@@ -18,6 +18,9 @@ const Result = props => {
             <h4>Analyze</h4>
             <DistributionOfRisk arxResp={arxResp} />
             <ReIdentificationRisk arxResp={arxResp}/>
+            <br/>
+
+            {JSON.stringify(arxResp) }
         </div>
     )
 

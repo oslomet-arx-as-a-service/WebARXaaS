@@ -5,7 +5,7 @@ const DownloadAnonymizationData = props => {
     const { arxResp } = props
 
     const handleDownloadCSV = () => {
-        var csv = papaparse.unparse(arxResp.anonymizeResult.data);
+        var csv = papaparse.unparse(arxResp.anonymizeResult.data,{delimiter: ";"});
         console.log("Downloading csv")
         const element = document.createElement("a");
         let csvData = new Blob([csv], {type: 'text/plain'});
