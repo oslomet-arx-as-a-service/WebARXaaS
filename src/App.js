@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 
 import './bootstrap.min.css'
-import Analyse from './components/Analyse';
+import AaaS from './components/AaaS';
 
 const App = props =>{
 
@@ -38,7 +38,7 @@ const App = props =>{
           <div className="col-lg-12 text-center">
             <h1 className="mt-5">Analyze with AaaS</h1>
             <p>{endpoint}</p>
-            <Analyse endpoint = {endpoint}/>
+            <AaaS endpoint = {endpoint}/>
           </div>
         </div>
       </div>
