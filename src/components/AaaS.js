@@ -3,13 +3,14 @@ import Attribute from './Attribute'
 import papaparse from 'papaparse';
 import Result from './Result';
 import PrivacyModelManager from './PrivacyModelManager';
+import RenderPrivacyModels from './RenderPrivacyModels'
 
 const Anonymise = props => {
 
   const { endpoint } = props
   const [currentData, setData] = useState("")
   const [attributes, setAttributes] = useState([])
-  const [privacyModels, setPrivacyModels] = useState([{ 'privacyModel': 'KANONYMITY', params: { 'k': 3 } }])
+  const [privacyModels, setPrivacyModels] = useState([])
   const [arxResp, setArxResp] = useState('')
   const [action, setAction] = useState('none')
   const attributeTypeModel = 'QUASIIDENTIFYING'
@@ -35,14 +36,14 @@ const Anonymise = props => {
       attributeTypeModel: selectedType
     };
     setAttributes(attributes);
-    setTimeout(() => console.log(attributes), 1000)
+    setTimeout(() => console.log(attributes), 500)
   }
 
   const handlePrivacyAdd = (model) => {
     console.log("Adding privacy model: ", model)
     privacyModels.push(model)
     setPrivacyModels(privacyModels);
-    setTimeout(() => console.log(privacyModels), 1000)
+    setTimeout(() => console.log(privacyModels))
   }
 
   const handlePrivacyRemove = () => {
@@ -95,26 +96,34 @@ const Anonymise = props => {
   let content = (
     <div>
       <p>{action}</p>
+      <p>{JSON.stringify(privacyModels)}</p>
       <input type='file'
         d='file'
         className='input-file'
         accept='.csv'
         onChange={e => onFilesChange(e.target.files[0])}
       />
-      {attributes.map(({ field }, index) =>
-        (<Attribute
-          name={field}
-          key={field}
-          index={index}
-          handleTypeSelect={handleTypeSelect}
-          handleHierarchyUpload={handleHierarchyUpload}
-        />))}
-
-        <PrivacyModelManager
+      <div align='center'>
+        <table>
+          {attributes.map(({ field }, index) =>
+            (<Attribute
+              name={field}
+              key={field}
+              index={index}
+              handleTypeSelect={handleTypeSelect}
+              handleHierarchyUpload={handleHierarchyUpload}
+            />))}
+        </table>
+      </div>
+      <PrivacyModelManager
         privacyModels={privacyModels}
         handlePrivacyAdd={handlePrivacyAdd}
         handlePrivacyRemove={handlePrivacyRemove}
-        />
+      />
+
+      <RenderPrivacyModels
+        privacyModels={privacyModels}
+      />
 
       <button onClick={(e) => handleRequest(e, 'analyze')}>
         Analyze
@@ -123,13 +132,13 @@ const Anonymise = props => {
         Anonymize
         </button>
 
-   
+
       <Result
         arxResp={arxResp}
         action={action}
       />
 
-<br/>
+      <br />
 
     </div>
   );
