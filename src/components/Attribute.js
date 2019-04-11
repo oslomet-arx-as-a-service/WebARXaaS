@@ -9,7 +9,8 @@ const Attribute = props => {
             <tr>
                 <td>{name}</td>
                 <td>
-                    <select
+                    <select 
+                        className="form-control"
                         onChange={(e) => {
                             props.handleTypeSelect(e, name, index)
                             setSelect(e.target.value)

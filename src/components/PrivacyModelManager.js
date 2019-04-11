@@ -17,7 +17,7 @@ const PrivacyModelManager = (props) => {
     const kanonymity = (
         <div>
             <label>K: </label>
-            <input type='number' min="0" onChange={(e) => handleSetParam({k: e.target.value})}></input>
+            <input type='number' className="form-control" min="0" onChange={(e) => handleSetParam({k: e.target.value})}></input>
         </div>
     )
     const ldiversity = (
@@ -56,9 +56,9 @@ const PrivacyModelManager = (props) => {
 
     let content = (
         <div>
-            <label>Privacy Model:</label>
-            {JSON.stringify(param)}
+
             <select
+                className="form-control"
                 onChange={(e) => {
                     setSelectedPrivacyModel(e.target.value)
                     updateForm(e.target.value)
@@ -72,7 +72,7 @@ const PrivacyModelManager = (props) => {
                 <option value="LDIVERSITY_RECURSIVE">L-Diversity-Recursive</option>
             </select>
             {paramForm}
-            <button onClick={(e) => handlePrivacyAdd({privacyModel: selectedPrivacyModel, params: param})}>Add Privacy Model</button>
+            <button className="btn btn-outline-primary" onClick={(e) => handlePrivacyAdd({privacyModel: selectedPrivacyModel, params: param})}>Add Privacy Model</button>
         </div>
     )
     return content

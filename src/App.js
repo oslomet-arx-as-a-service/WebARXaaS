@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
 
-import './bootstrap.min.css'
 import AaaS from './components/AaaS';
+import './bootstrap.css'
 
 const App = props =>{
 
@@ -15,8 +15,10 @@ const App = props =>{
   }
     
   let content = (
-      <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+      <div className="App" >
+
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary" >
       <a className="navbar-brand" href="/">ArxAaaS</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -26,18 +28,17 @@ const App = props =>{
           
         </ul>
       <div className="form-inline my-2 my-lg-0">
-      <input className="form-control mr-sm-2" type="search" placeholder="Api-Endpoint" aria-label="API-Endpoint" defaultValue={endpoint} onChange={endpointHandler}></input>
+      <input className="form-control mr-sm-2" type="text" placeholder="Api-Endpoint" aria-label="API-Endpoint" defaultValue={endpoint} onChange={endpointHandler}></input>
       </div>
         
       </div>
     </nav>
 
 
-      <div className="container">
+      <div >
         <div className="row">
           <div className="col-lg-12 text-center">
             <h1 className="mt-5">Analyze with AaaS</h1>
-            <p>{endpoint}</p>
             <AaaS endpoint = {endpoint}/>
           </div>
         </div>

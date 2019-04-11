@@ -5,6 +5,7 @@ import Result from './Result';
 import PrivacyModelManager from './PrivacyModelManager';
 import RenderPrivacyModels from './RenderPrivacyModels'
 
+
 const Anonymise = props => {
 
   const { endpoint } = props
@@ -94,15 +95,29 @@ const Anonymise = props => {
   }
 
   let content = (
-    <div>
-      <p>{action}</p>
-      <p>{JSON.stringify(privacyModels)}</p>
-      <input type='file'
-        d='file'
-        className='input-file'
-        accept='.csv'
-        onChange={e => onFilesChange(e.target.files[0])}
-      />
+    <div align="center">
+
+      <div className="card border-primary mb-3" align="center" style={{ maxWidth: '40rem' }}>
+        <div className="card-header">Upload</div>
+        <div className="card-body">
+          <div className="row">
+            <div className="col-sm">
+              <p className="card-text">Upload CSV formated file:</p>
+            </div>
+            <div className="col-sm">
+              <input type='file'
+                d='file'
+                className='input-file'
+                accept='.csv'
+                onChange={e => onFilesChange(e.target.files[0])}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
       <div align='center'>
         <table>
           {attributes.map(({ field }, index) =>
@@ -115,20 +130,31 @@ const Anonymise = props => {
             />))}
         </table>
       </div>
-      <PrivacyModelManager
-        privacyModels={privacyModels}
-        handlePrivacyAdd={handlePrivacyAdd}
-        handlePrivacyRemove={handlePrivacyRemove}
-      />
 
-      <RenderPrivacyModels
-        privacyModels={privacyModels}
-      />
 
-      <button onClick={(e) => handleRequest(e, 'analyze')}>
+      <div className="card border-primary mb-3" style={{ maxWidth: '20rem' }}>
+        <div className="card-header">Privacy model</div>
+        <div className="card-body">
+          
+
+          <PrivacyModelManager
+          privacyModels={privacyModels}
+          handlePrivacyAdd={handlePrivacyAdd}
+          handlePrivacyRemove={handlePrivacyRemove}
+        />
+  
+        <RenderPrivacyModels
+          privacyModels={privacyModels}
+        />
+        </div>
+      </div>
+
+
+
+      <button className="btn btn-primary" onClick={(e) => handleRequest(e, 'analyze')}>
         Analyze
           </button>
-      <button onClick={(e) => handleRequest(e, 'anonymize')}>
+      <button className="btn btn-primary" onClick={(e) => handleRequest(e, 'anonymize')}>
         Anonymize
         </button>
 

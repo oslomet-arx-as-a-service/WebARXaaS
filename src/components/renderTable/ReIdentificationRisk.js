@@ -9,7 +9,7 @@ const ReIdentificationRisk = props => {
     let content = (
         <div align="left">
             <h3>Reidentification Risk</h3>
-            <table>
+            <table className="table table-hover">
                 <tr><td><b>Prosecutor attacker success rate: </b></td><td>{arxResp.reIdentificationRisk.measures.Prosecutor_attacker_success_rate}</td></tr>
                 <tr><td><b>Records affected by highest prosecutor risk: </b></td><td>{arxResp.reIdentificationRisk.measures.records_affected_by_highest_prosecutor_risk}</td></tr>
                 <tr><td><b>Sample uniques: </b></td><td>{arxResp.reIdentificationRisk.measures.sample_uniques}</td></tr>
