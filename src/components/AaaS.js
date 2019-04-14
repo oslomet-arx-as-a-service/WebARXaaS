@@ -19,7 +19,7 @@ const Anonymise = props => {
   const onFilesChange = file => {
     papaparse.parse(file, {
       complete: function (results) {
-        if (results.data.length > 0) {
+        if (results.data.length > 0) { 
           let headers = results.data[0]
           setAttributes(headers.map(field => ({ field, attributeTypeModel })))
           setData(results.data)
@@ -67,6 +67,7 @@ const Anonymise = props => {
     const payload = buildPayload()
     request(payload, service)
     setAction(service)
+    console.log("Payload: ", JSON.stringify(payload))
   }
 
   const buildPayload = () => {

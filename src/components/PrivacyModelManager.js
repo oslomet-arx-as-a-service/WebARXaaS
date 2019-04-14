@@ -4,13 +4,13 @@ const PrivacyModelManager = (props) => {
 
     const { privacyModels, handlePrivacyAdd, handlePrivacyRemove } = props;
     const [selectedPrivacyModel, setSelectedPrivacyModel] = useState('KANONYMITY')
-    const [param, setParam] = useState([])
+    const [param, setParam] = useState({})
     const [paramForm, setParamForm] = useState('')
 
     const handleSetParam = (newParam) => {
         console.log("New param: ", newParam)
         console.log("Old state: ", param)
-        setParam([newParam])
+        setParam(newParam)
         setTimeout(()=> console.log("New State: ", param), 1000)
     }
 
