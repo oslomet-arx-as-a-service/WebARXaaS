@@ -3,7 +3,7 @@ import ReactTable from "react-table";
 import 'react-table/react-table.css'
 const DistributionOfRisk = props => {
 
-    const { arxResp } = props
+    const { riskIntervalList } = props
     
     const columns = [{
         Header: 'Interval',
@@ -22,7 +22,7 @@ const DistributionOfRisk = props => {
         <div>
             <h3>Risk Interval</h3>
             <ReactTable
-                data={arxResp.distributionOfRisk.riskIntervalList}
+                data={riskIntervalList}
                 columns={columns}
             />
         </div>

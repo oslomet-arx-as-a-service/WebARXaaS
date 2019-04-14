@@ -44,7 +44,6 @@ const Anonymise = props => {
     console.log("Adding privacy model: ", model)
     privacyModels.push(model)
     setPrivacyModels(privacyModels);
-    setTimeout(() => console.log(privacyModels))
   }
 
   const handlePrivacyRemove = () => {

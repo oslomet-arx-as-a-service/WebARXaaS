@@ -11,7 +11,7 @@ const PrivacyModelManager = (props) => {
         console.log("New param: ", newParam)
         console.log("Old state: ", param)
         setParam(newParam)
-        setTimeout(()=> console.log("New State: ", param), 1000)
+        setTimeout(()=> console.log("New State: ", param), 500)
     }
 
     const kanonymity = (
