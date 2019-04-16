@@ -2,24 +2,23 @@ import React, { useState } from 'react'
 
 const PrivacyModelManager = (props) => {
 
-    const { privacyModels, handlePrivacyAdd, handlePrivacyRemove } = props;
-    const [selectedPrivacyModel, setSelectedPrivacyModel] = useState('KANONYMITY');
-    const [param, setParam] = useState({});
-    const [paramForm, setParamForm] = useState('');
-
-    const handleSetParam = (newParam) => {
-        console.log("New param: ", newParam);
-        console.log("Old state: ", param);
-        setParam(newParam);
-        setTimeout(()=> console.log("New State: ", param), 500)
-    };
-
     const kanonymity = (
         <div>
             <label>K: </label>
             <input type='number' className="form-control" min="2" max="1000" onChange={(e) => handleSetParam({k: e.target.value})}></input>
         </div>
     );
+
+    const {handlePrivacyAdd, handlePrivacyRemove } = props;
+    const [selectedPrivacyModel, setSelectedPrivacyModel] = useState('KANONYMITY');
+    const [param, setParam] = useState("{}");
+    const [paramForm, setParamForm] = useState(kanonymity);
+
+    const handleSetParam = (newParam) => {
+        setParam(newParam);
+    };
+
+
     const ldiversity = (
         <div>
             <label>L: </label>
