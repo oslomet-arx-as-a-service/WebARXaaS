@@ -17,21 +17,21 @@ const PrivacyModelManager = (props) => {
     const kanonymity = (
         <div>
             <label>K: </label>
-            <input type='number' className="form-control" min="0" onChange={(e) => handleSetParam({k: e.target.value})}></input>
+            <input type='number' className="form-control" min="2" max="1000" onChange={(e) => handleSetParam({k: e.target.value})}></input>
         </div>
     );
     const ldiversity = (
         <div>
             <label>L: </label>
-            <input type='number' min="0" id="L" onChange={(e) => handleSetParam({l: e.target.value , COLUMNAME: document.getElementById("column_name").value })}></input>
-            <label>Field: </label>
+            <input type='number' min="2" max="1000" id="L" onChange={(e) => handleSetParam({l: e.target.value , COLUMNAME: document.getElementById("column_name").value })}></input>
+        <label>Field: </label>
             <input type='text' id="column_name" onChange={(e) => handleSetParam({l: document.getElementById("L").value, COLUMNNAME: e.target.value})}></input>
         </div>
     );
     const tcloseness = (
         <div>
             <label>T: </label>
-            <input type='number' min="0" id="T" onChange={(e) => handleSetParam({t: e.target.value , COLUMNAME: document.getElementById("column_name").value })}></input>
+            <input type='number' min="0.000001" max="1" step="0.000001" id="T" onChange={(e) => handleSetParam({t: e.target.value , COLUMNAME: document.getElementById("column_name").value })}></input>
             <label>Field: </label>
             <input type='text' id="column_name" onChange={(e) => handleSetParam({t: document.getElementById("L").value, COLUMNNAME: e.target.value})}></input>
         </div>
@@ -39,11 +39,11 @@ const PrivacyModelManager = (props) => {
     const ldiversityRecursive = (
         <div>
             <label>L: </label>
-            <input type='number' min="0" id="L" onChange={(e) => handleSetParam({l: e.target.value , COLUMNAME: document.getElementById("column_name").value , C: document.getElementById("C").value})}></input>
+            <input type='number'  min="2" max="1000" id="L" onChange={(e) => handleSetParam({l: e.target.value , COLUMNAME: document.getElementById("column_name").value , C: document.getElementById("C").value})}></input>
             <label>Field: </label>
             <input type='text' id="column_name" onChange={(e) => handleSetParam({l: document.getElementById("L").value, COLUMNNAME: e.target.value , C: document.getElementById("C").value})}></input>
             <label>C: </label>
-            <input type='number' min="0" id="C" onChange={(e) => handleSetParam({l: document.getElementById("L").value , COLUMNAME: document.getElementById("column_name").value, C: e.target.value })}></input>
+            <input type='number'  min="0.00001" max="1000" step="0.00001" id="C" onChange={(e) => handleSetParam({l: document.getElementById("L").value , COLUMNAME: document.getElementById("column_name").value, C: e.target.value })}></input>
         </div>
     );
 
