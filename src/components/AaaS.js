@@ -8,20 +8,20 @@ import RenderPrivacyModels from './RenderPrivacyModels'
 
 const Anonymise = props => {
 
-  const { endpoint } = props
-  const [currentData, setData] = useState("")
-  const [attributes, setAttributes] = useState([])
-  const [privacyModels, setPrivacyModels] = useState([])
-  const [arxResp, setArxResp] = useState('')
-  const [action, setAction] = useState('none')
-  const attributeTypeModel = 'QUASIIDENTIFYING'
+  const { endpoint } = props;
+  const [currentData, setData] = useState("");
+  const [attributes, setAttributes] = useState([]);
+  const [privacyModels, setPrivacyModels] = useState([]);
+  const [arxResp, setArxResp] = useState('');
+  const [action, setAction] = useState('none');
+  const attributeTypeModel = 'QUASIIDENTIFYING';
 
   const onFilesChange = file => {
     papaparse.parse(file, {
       complete: function (results) {
         if (results.data.length > 0) { 
-          let headers = results.data[0]
-          setAttributes(headers.map(field => ({ field, attributeTypeModel })))
+          let headers = results.data[0];
+          setAttributes(headers.map(field => ({ field, attributeTypeModel })));
           setData(results.data)
         }
       }
@@ -30,7 +30,7 @@ const Anonymise = props => {
 
   const handleTypeSelect = ({ target }, field, index) => {
     const { value: selectedType } = target;
-    console.log('Index:', index)
+    console.log('Index:', index);
     attributes[index] = {
       ...attributes[index],
       field,
@@ -38,17 +38,17 @@ const Anonymise = props => {
     };
     setAttributes(attributes);
     setTimeout(() => console.log(attributes), 500)
-  }
+  };
 
   const handlePrivacyAdd = (model) => {
-    console.log("Adding privacy model: ", model)
-    privacyModels.push(model)
+    console.log("Adding privacy model: ", model);
+    privacyModels.push(model);
     setPrivacyModels(privacyModels);
-  }
+  };
 
   const handlePrivacyRemove = () => {
 
-  }
+  };
 
   const handleHierarchyUpload = (file, field, index) => {
     papaparse.parse(file, {
@@ -56,29 +56,29 @@ const Anonymise = props => {
         attributes[index] = {
           ...attributes[index],
           hierarchy: hierarchy.data
-        }
+        };
         setAttributes(attributes)
       }
     });
-  }
+  };
 
   const handleRequest = (e, service) => {
-    const payload = buildPayload()
-    request(payload, service)
-    setAction(service)
+    const payload = buildPayload();
+    request(payload, service);
+    setAction(service);
     console.log("Payload: ", JSON.stringify(payload))
-  }
+  };
 
   const buildPayload = () => {
-    let jsonModel = {}
-    jsonModel['data'] = currentData
-    jsonModel['attributes'] = attributes
-    jsonModel['privacyModels'] = privacyModels
+    let jsonModel = {};
+    jsonModel['data'] = currentData;
+    jsonModel['attributes'] = attributes;
+    jsonModel['privacyModels'] = privacyModels;
     return jsonModel
-  }
+  };
 
-  const request = (payload, service) => {
-    console.log(endpoint)
+    console.log(endpoint);
+    const request = (payload, service) => {
     fetch(endpoint + '/api/' + service, {
       crossDomain: true,
       method: 'post',
@@ -92,7 +92,7 @@ const Anonymise = props => {
       console.log('Response:', data);
       setArxResp(data)
     });
-  }
+  };
 
   let content = (
     <div align="center">
@@ -106,10 +106,10 @@ const Anonymise = props => {
             </div>
             <div className="col-sm">
               <input type='file'
-                d='file'
-                className='input-file'
-                accept='.csv'
-                onChange={e => onFilesChange(e.target.files[0])}
+                     id='file'
+                     className='input-file'
+                     accept='.csv'
+                     onChange={e => onFilesChange(e.target.files[0])}
               />
             </div>
           </div>
@@ -170,5 +170,5 @@ const Anonymise = props => {
   );
 
   return content;
-}
+};
 export default Anonymise
