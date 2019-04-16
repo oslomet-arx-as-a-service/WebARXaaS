@@ -4,6 +4,7 @@ import DistributionOfRisk from './tables/DistributionOfRisk';
 import DownloadAnonymizationData from './DownloadAnonymizationData';
 import Data from './tables/Data'
 import ReIdentificationRisk from "./tables/ReIdentificationRisk";
+import MetricsAttributeGeneraliztion from "./tables/MetricsAttributeGeneralization"
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -26,6 +27,8 @@ const anonymizeResult = props => {
                     </Col>
                 </Row>
             </Container>
+            <h2>Anonymization Metrics</h2>
+            <MetricsAttributeGeneraliztion attributeGeneralization={arxResp.anonymizeResult.metrics.attributeGeneralization} />
         </div>
     )
 

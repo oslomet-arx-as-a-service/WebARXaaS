@@ -24,6 +24,7 @@ const DistributionOfRisk = props => {
             <ReactTable
                 data={riskIntervalList}
                 columns={columns}
+                defaultPageSize={24}
             />
         </div>
     )
