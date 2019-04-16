@@ -3,14 +3,29 @@ import 'bootstrap/dist/css/bootstrap.css';
 import DistributionOfRisk from './tables/DistributionOfRisk';
 import DownloadAnonymizationData from './DownloadAnonymizationData';
 import Data from './tables/Data'
+import ReIdentificationRisk from "./tables/ReIdentificationRisk";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 const anonymizeResult = props => {
     const { arxResp } = props
     let content = (
         <div>
             <h4>Anonymize Result</h4>
+            <p>Anonymization Status:  <b>{arxResp.anonymizeResult.anonymizationStatus}</b></p>
             <Data arxResp={arxResp}/>
             <DownloadAnonymizationData arxResp={arxResp} />
-            <DistributionOfRisk riskIntervalList={arxResp.riskProfile.distributionOfRisk.riskIntervalList} />
+            <Container>
+                <Row>
+                    <Col sm={5}>
+                        <ReIdentificationRisk measures={arxResp.riskProfile.reIdentificationRisk.measures} />
+                    </Col>
+                    <Col sm={1}></Col>
+                    <Col sm={6}>
+                        <DistributionOfRisk riskIntervalList={arxResp.riskProfile.distributionOfRisk.riskIntervalList} />
+                    </Col>
+                </Row>
+            </Container>
         </div>
     )
 

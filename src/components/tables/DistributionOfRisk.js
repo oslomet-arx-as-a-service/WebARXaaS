@@ -3,7 +3,7 @@ import ReactTable from "react-table";
 import 'react-table/react-table.css'
 const DistributionOfRisk = props => {
 
-    const { riskIntervalList } = props
+    const { riskIntervalList } = props;
     
     const columns = [{
         Header: 'Interval',

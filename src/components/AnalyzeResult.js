@@ -14,7 +14,7 @@ const AnalyzeResult = props => {
         <Container>
             <Row>
                 <Col sm={5}>
-                    <ReIdentificationRisk arxResp={arxResp} />
+                    <ReIdentificationRisk measures={arxResp.reIdentificationRisk.measures} />
                 </Col>
                 <Col sm={1}></Col>
                 <Col sm={6}>
