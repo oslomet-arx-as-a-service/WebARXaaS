@@ -41,9 +41,7 @@ const Anonymise = props => {
   };
 
   const handlePrivacyAdd = (model) => {
-    console.log("Adding privacy model: ", model);
-    privacyModels.push(model);
-    setPrivacyModels(privacyModels);
+    setPrivacyModels([...privacyModels,model]);
   };
 
   const handlePrivacyRemove = () => {
@@ -66,7 +64,6 @@ const Anonymise = props => {
     const payload = buildPayload();
     request(payload, service);
     setAction(service);
-    console.log("Payload: ", JSON.stringify(payload))
   };
 
   const buildPayload = () => {
@@ -77,7 +74,6 @@ const Anonymise = props => {
     return jsonModel
   };
 
-    console.log(endpoint);
     const request = (payload, service) => {
     fetch(endpoint + '/api/' + service, {
       crossDomain: true,
@@ -89,7 +85,6 @@ const Anonymise = props => {
     }).then(function (response) {
       return response.json();
     }).then(function (data) {
-      console.log('Response:', data);
       setArxResp(data)
     });
   };
