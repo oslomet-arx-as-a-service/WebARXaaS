@@ -33,7 +33,7 @@ const PrivacyModelManager = (props) => {
             <label>T: </label>
             <input type='number' min="0.000001" max="1" step="0.000001" id="T" onChange={(e) => handleSetParam({t: e.target.value , column_name: document.getElementById("column_name").value })}></input>
             <label>Field: </label>
-            <input type='text' id="column_name" onChange={(e) => handleSetParam({t: document.getElementById("L").value, column_name: e.target.value})}></input>
+            <input type='text' id="column_name" onChange={(e) => handleSetParam({t: document.getElementById("T").value, column_name: e.target.value})}></input>
         </div>
     );
     const ldiversityRecursive = (
