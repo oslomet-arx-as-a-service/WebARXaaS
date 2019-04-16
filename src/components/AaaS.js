@@ -44,8 +44,20 @@ const Anonymise = props => {
     setPrivacyModels([...privacyModels,model]);
   };
 
-  const handlePrivacyRemove = () => {
+  const handlePrivacyRemove = (index) => {
+    let models = []
+    privacyModels.forEach((element, i) => {
+      console.log(i, element)
+      if(i !== index){
+        models.push(element)
+        console.log("Pushing because:", i, index, element)
+      }else{
+        console.log("Not pushing because:", i, index, element)
+      }
+    });
 
+    console.log("Models: ",models)
+    setPrivacyModels(models);
   };
 
   const handleHierarchyUpload = (file, field, index) => {
@@ -140,6 +152,7 @@ const Anonymise = props => {
   
         <RenderPrivacyModels
           privacyModels={privacyModels}
+          handlePrivacyRemove={handlePrivacyRemove}
         />
         </div>
       </div>
