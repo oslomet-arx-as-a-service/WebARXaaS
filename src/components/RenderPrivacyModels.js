@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const PrivacyModelManager = (props) => {
-    const { privacyModels } = props
+    const { privacyModels } = props;
 
 
 
@@ -30,8 +30,8 @@ const PrivacyModelManager = (props) => {
                 </tbody>
             </table>
         </div>
-    )
+    );
     return content
-}
+};
 
 export default PrivacyModelManager
