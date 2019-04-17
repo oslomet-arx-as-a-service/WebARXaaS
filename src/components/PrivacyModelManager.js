@@ -42,7 +42,7 @@ const PrivacyModelManager = (props) => {
             <label>Field: </label>
             <input type='text' id="column_name" onChange={(e) => handleSetParam({l: document.getElementById("L").value, column_name: e.target.value , C: document.getElementById("C").value})}></input>
             <label>C: </label>
-            <input type='number'  min="0.00001" max="1000" step="0.00001" id="C" onChange={(e) => handleSetParam({l: document.getElementById("L").value , column_name: document.getElementById("column_name").value, C: e.target.value })}></input>
+            <input type='number'  min="0.00001" max="1000" step="0.00001" id="C" onChange={(e) => handleSetParam({l: document.getElementById("L").value , column_name: document.getElementById("column_name").value, c: e.target.value })}></input>
         </div>
     );
 
