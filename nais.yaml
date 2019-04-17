@@ -23,6 +23,3 @@ healthcheck: #Optional
     initialDelay: 60
     timeout: 1
 
-prometheus: 
-  enabled: true
-  path: /actuator/prometheus
