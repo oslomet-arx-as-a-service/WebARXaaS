@@ -4,7 +4,7 @@ node {
     def yaml_path
     def version_tag
     
-    def app_name = 'webARXaas'
+    def app_name = 'webarxaas'
     def namespace = 'default'
     def cluster = 'adeo.no'
     def test_cluster = 'preprod.local'
