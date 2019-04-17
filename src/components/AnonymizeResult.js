@@ -9,6 +9,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import PrivacyModels from "./tables/MetricsPrivacyModel";
+
 const anonymizeResult = props => {
     const { arxResp } = props;
     let content = (

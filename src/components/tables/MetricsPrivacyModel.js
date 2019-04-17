@@ -7,15 +7,27 @@ const PrivacyModels = props => {
 
     const content = (
         <div>
-            {Object.keys({privacyModels}).map(key =>(
-                <p key={key}>
-                    {privacyModels[key]}
-                </p>
-            ))}
+            <h3>Privacy Models</h3>
+
+                    {
+                        privacyModels.map((data,i) => (
+                            <div key={i}>
+                            <table className="table table-hover" >
+                                <tbody>
+                                    {Object.keys(data).map((key) => (
+                                        <tr key={key}>
+                                        <td>{key}</td>
+                                        <td>{String(data[key])}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                            <br />
+                            </div>
+                        ))
+                    }
         </div>
     );
-
-
     return content;
 };
 export default PrivacyModels;
