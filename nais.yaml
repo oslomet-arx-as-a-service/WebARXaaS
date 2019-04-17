@@ -22,4 +22,3 @@ healthcheck: #Optional
     path: /isReady
     initialDelay: 60
     timeout: 1
-

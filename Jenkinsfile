@@ -28,12 +28,19 @@ node {
             version_tag = "${datestring}-${git_commit_hash}"
         }
 
+        stage('Build react Deploy') {
+            dir("${app_name}") {
+                sh "yarn"
+                sh "yarn build"
+            }
+        }
 
         stage('Build docker image') {
             dir("${app_name}") {
                 app = docker.build("${app_name}")
             }
         }
+        
         stage('Push docker image') {
             docker.withRegistry('https://repo.adeo.no:5443', 'nexus-credentials') {
                 app.push("${version_tag}")
