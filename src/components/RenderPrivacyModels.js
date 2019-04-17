@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 const PrivacyModelManager = (props) => {
     const { privacyModels, handlePrivacyRemove } = props;
@@ -14,12 +14,13 @@ const PrivacyModelManager = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-
                     {privacyModels.map((model, index) => {
-                        return (<tr>
+                        return (<tr key={index}>
                             <td>{model.privacyModel}</td>
                             <td>{JSON.stringify(model.params)}</td>
-                            <button type="button" className="btn btn-danger btn-sm" onClick={(e) => handlePrivacyRemove(index)}>Remove</button>
+                            <td>
+                            <button type="button" className="btn btn-danger btn-sm" onClick={() => handlePrivacyRemove(index)}>Remove</button>
+                            </td>
                         </tr>)
                     })}
                 </tbody>
