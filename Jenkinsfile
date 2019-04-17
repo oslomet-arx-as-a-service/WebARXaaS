@@ -4,7 +4,7 @@ node {
     def yaml_path
     def version_tag
     
-    def app_name = 'webaaas'
+    def app_name = 'webARXaas'
     def namespace = 'default'
     def cluster = 'adeo.no'
     def test_cluster = 'preprod.local'
@@ -22,7 +22,7 @@ node {
                     scm: [$class           : 'GitSCM',
                           branches         : [[name: '*/master']],
                           extensions       : [[$class: 'RelativeTargetDirectory', relativeTargetDir: "${app_name}"]],
-                          userRemoteConfigs: [[url: "https://github.com/oslomet-arx-as-a-service/WebAaaS.git"]]]
+                          userRemoteConfigs: [[url: "https://github.com/oslomet-arx-as-a-service/WebARXaaS.git"]]]
             )
             def git_commit_hash = sh(script: "git --git-dir=./${app_name}/.git rev-parse --short HEAD", returnStdout: true).trim()
             version_tag = "${datestring}-${git_commit_hash}"
