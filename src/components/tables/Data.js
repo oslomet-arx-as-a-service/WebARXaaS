@@ -3,8 +3,7 @@ import ReactTable from "react-table";
 import 'react-table/react-table.css'
 const Data = props => {
 
-    const { arxResp } = props
-    console.log('Anonymization data: ',arxResp.anonymizeResult.data)
+    const { arxResp } = props;
     const columns = Object.keys(arxResp.anonymizeResult.data[0]).map((key, id)=>{
         return {
           Header: arxResp.anonymizeResult.data[0][key],

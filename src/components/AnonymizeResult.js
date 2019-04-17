@@ -8,8 +8,10 @@ import MetricsAttributeGeneraliztion from "./tables/MetricsAttributeGeneralizati
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import PrivacyModels from "./tables/MetricsPrivacyModel";
+
 const anonymizeResult = props => {
-    const { arxResp } = props
+    const { arxResp } = props;
     let content = (
         <div>
             <h4>Anonymize Result</h4>
@@ -28,10 +30,12 @@ const anonymizeResult = props => {
                 </Row>
             </Container>
             <h2>Anonymization Metrics</h2>
+            <p>Process Time: <b>{arxResp.anonymizeResult.metrics.processTimeMillisecounds} ms</b></p>
             <MetricsAttributeGeneraliztion attributeGeneralization={arxResp.anonymizeResult.metrics.attributeGeneralization} />
+            <PrivacyModels privacyModels={arxResp.anonymizeResult.metrics.privacyModels} />
         </div>
-    )
+    );
 
     return content
-}
+};
 export default anonymizeResult

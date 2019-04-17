@@ -30,14 +30,12 @@ const Anonymise = props => {
 
   const handleTypeSelect = ({ target }, field, index) => {
     const { value: selectedType } = target;
-    console.log('Index:', index);
     attributes[index] = {
       ...attributes[index],
       field,
       attributeTypeModel: selectedType
     };
     setAttributes(attributes);
-    setTimeout(() => console.log(attributes), 500)
   };
 
   const handlePrivacyAdd = (model) => {
@@ -45,18 +43,18 @@ const Anonymise = props => {
   };
 
   const handlePrivacyRemove = (index) => {
-    let models = []
+    let models = [];
     privacyModels.forEach((element, i) => {
-      console.log(i, element)
+      console.log(i, element);
       if(i !== index){
-        models.push(element)
+        models.push(element);
         console.log("Pushing because:", i, index, element)
       }else{
         console.log("Not pushing because:", i, index, element)
       }
     });
 
-    console.log("Models: ",models)
+    console.log("Models: ",models);
     setPrivacyModels(models);
   };
 
