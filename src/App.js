@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 
-import AaaS from './components/AaaS';
+import AaaS from './components/ARXaaS';
 import './bootstrap.css'
 
 const App = props =>{
