@@ -38,7 +38,7 @@ const App = props =>{
       <div >
         <div className="row">
           <div className="col-lg-12 text-center">
-            <h1 className="mt-5">Analyze with AaaS</h1>
+            <h1 className="mt-5">ARX as a Service</h1>
             <AaaS endpoint = {endpoint}/>
           </div>
         </div>
