@@ -1,4 +1,4 @@
-image: repo.adeo.no:5443/arxaas
+image: repo.adeo.no:5443/webaaas
 team: ailab
 port: 8080
 
