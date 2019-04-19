@@ -7,7 +7,6 @@ import DistributionOfRisk from './tables/DistributionOfRisk';
 import ReIdentificationRisk from './tables/ReIdentificationRisk';
 const AnalyzeResult = props => {
     const { arxResp } = props
-    console.log("AnalyzeResult: ", arxResp)
     let content = (
         <div>
         <h4>Analyze</h4>
