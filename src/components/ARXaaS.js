@@ -13,7 +13,7 @@ const Anonymise = props => {
   const [currentData, setData] = useState("");
   const [attributes, setAttributes] = useState([]);
   const [privacyModels, setPrivacyModels] = useState([]);
-  const [suppressionLimit, setSuppressionLimit] = useState("");
+  const [suppressionLimit, setSuppressionLimit] = useState(null);
   const [arxResp, setArxResp] = useState('');
   const [action, setAction] = useState('none');
   const attributeTypeModel = 'QUASIIDENTIFYING';
@@ -65,7 +65,7 @@ const Anonymise = props => {
   };
 
   const handleSuppressionLimitRemove = () => {
-    setSuppressionLimit("")
+    setSuppressionLimit(null)
   }
 
   const handleHierarchyUpload = (file, field, index) => {
