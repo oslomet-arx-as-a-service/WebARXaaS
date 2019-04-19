@@ -7,7 +7,7 @@ const RenderSuppressionLimit = (props) => {
     const content = (
         <div>
             <label>Limit:</label>
-            <input type='number' id="limit" min="0" max="1" step="0.001"/>
+            <input type='number' id="limit" min="0" max="1" step="0.001" />
             <button className="btn btn-outline-primary" onClick={() => handleSuppressionLimitAdd(document.getElementById("limit").value)}>Add Suppression Limit</button>
             <br />
             <label> Suppression Limit: {suppressionLimit}</label>
