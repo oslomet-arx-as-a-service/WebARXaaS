@@ -4,6 +4,7 @@ import papaparse from 'papaparse';
 import Result from './Result';
 import PrivacyModelManager from './PrivacyModelManager';
 import RenderPrivacyModels from './RenderPrivacyModels'
+import RenderSuppressionLimit from "./RenderSuppressionLimit";
 
 
 const Anonymise = props => {
@@ -12,6 +13,7 @@ const Anonymise = props => {
   const [currentData, setData] = useState("");
   const [attributes, setAttributes] = useState([]);
   const [privacyModels, setPrivacyModels] = useState([]);
+  const [suppressionLimit, setSuppressionLimit] = useState(null);
   const [arxResp, setArxResp] = useState('');
   const [action, setAction] = useState('none');
   const attributeTypeModel = 'QUASIIDENTIFYING';
@@ -58,6 +60,14 @@ const Anonymise = props => {
     setPrivacyModels(models);
   };
 
+  const handleSuppressionLimitAdd = (limit) => {
+    setSuppressionLimit(limit);
+  };
+
+  const handleSuppressionLimitRemove = () => {
+    setSuppressionLimit(null)
+  }
+
   const handleHierarchyUpload = (file, field, index) => {
     papaparse.parse(file, {
       complete: function (hierarchy) {
@@ -81,6 +91,7 @@ const Anonymise = props => {
     jsonModel['data'] = currentData;
     jsonModel['attributes'] = attributes;
     jsonModel['privacyModels'] = privacyModels;
+    jsonModel["suppressionLimit"] = suppressionLimit;
     return jsonModel
   };
 
@@ -155,7 +166,18 @@ const Anonymise = props => {
         </div>
       </div>
 
+      <div className="card border-primary mb-3" style={{ maxWidth: '20rem' }}>
+        <div className="card-header">Suppression limit</div>
+        <div className="card-body">
 
+          <RenderSuppressionLimit
+              suppressionLimit = {suppressionLimit}
+              handleSuppressionLimitAdd = {handleSuppressionLimitAdd}
+              handleSuppressionLimitRemove = {handleSuppressionLimitRemove}
+          />
+
+        </div>
+      </div>
 
       <button className="btn btn-primary" onClick={(e) => handleRequest(e, 'analyze')}>
         Analyze
