@@ -6,14 +6,14 @@ import Col from 'react-bootstrap/Col'
 import DistributionOfRisk from './tables/DistributionOfRisk';
 import ReIdentificationRisk from './tables/ReIdentificationRisk';
 const AnalyzeResult = props => {
-    const { arxResp } = props
+    const { arxResp } = props;
     let content = (
         <div>
         <h4>Analyze</h4>
         <Container>
             <Row>
                 <Col sm={5}>
-                    <ReIdentificationRisk measures={arxResp.reIdentificationRisk.measures} />
+                    <ReIdentificationRisk reIdentificationRisk={arxResp.reIdentificationRisk} />
                 </Col>
                 <Col sm={1}></Col>
                 <Col sm={6}>
@@ -23,7 +23,7 @@ const AnalyzeResult = props => {
         </Container>
         <br />
     </div>
-    )
+    );
     return content
-}
+};
 export default AnalyzeResult

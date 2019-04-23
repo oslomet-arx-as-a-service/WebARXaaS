@@ -21,7 +21,7 @@ const anonymizeResult = props => {
             <Container>
                 <Row>
                     <Col sm={5}>
-                        <ReIdentificationRisk measures={arxResp.riskProfile.reIdentificationRisk.measures} />
+                        <ReIdentificationRisk reIdentificationRisk={arxResp.riskProfile.reIdentificationRisk} />
                     </Col>
                     <Col sm={1}></Col>
                     <Col sm={6}>
