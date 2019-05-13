@@ -23,6 +23,7 @@ const PrivacyModelManager = (props) => {
         <div>
             <label>L: </label>
             <input type='number' min="2" max="1000" id="L" onChange={(e) => handleSetParam({l: e.target.value , column_name: document.getElementById("column_name").value })}></input>
+            <br/>
         <label>Field: </label>
             <input type='text' id="column_name" onChange={(e) => handleSetParam({l: document.getElementById("L").value, column_name: e.target.value})}></input>
         </div>
@@ -31,6 +32,7 @@ const PrivacyModelManager = (props) => {
         <div>
             <label>T: </label>
             <input type='number' min="0.000001" max="1" step="0.000001" id="T" onChange={(e) => handleSetParam({t: e.target.value , column_name: document.getElementById("column_name").value })}></input>
+            <br/>
             <label>Field: </label>
             <input type='text' id="column_name" onChange={(e) => handleSetParam({t: document.getElementById("T").value, column_name: e.target.value})}></input>
         </div>
@@ -39,8 +41,10 @@ const PrivacyModelManager = (props) => {
         <div>
             <label>L: </label>
             <input type='number'  min="2" max="1000" id="L" onChange={(e) => handleSetParam({l: e.target.value , column_name: document.getElementById("column_name").value , C: document.getElementById("C").value})}></input>
+            <br/>
             <label>Field: </label>
             <input type='text' id="column_name" onChange={(e) => handleSetParam({l: document.getElementById("L").value, column_name: e.target.value , C: document.getElementById("C").value})}></input>
+            <br/>
             <label>C: </label>
             <input type='number'  min="0.00001" max="1000" step="0.00001" id="C" onChange={(e) => handleSetParam({l: document.getElementById("L").value , column_name: document.getElementById("column_name").value, c: e.target.value })}></input>
         </div>
