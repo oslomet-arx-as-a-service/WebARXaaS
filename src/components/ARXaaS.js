@@ -148,7 +148,7 @@ const Anonymise = props => {
       </div>
 
 
-      <div className="card border-primary mb-3" style={{ maxWidth: '20rem' }}>
+      <div className="card border-primary mb-3" style={{ maxWidth: '30rem' }}>
         <div className="card-header">Privacy model</div>
         <div className="card-body">
           
