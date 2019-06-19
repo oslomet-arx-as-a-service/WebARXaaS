@@ -5,9 +5,7 @@ import DownloadAnonymizationData from './DownloadAnonymizationData';
 import Data from './tables/Data'
 import ReIdentificationRisk from "./tables/ReIdentificationRisk";
 import MetricsAttributeGeneraliztion from "./tables/MetricsAttributeGeneralization"
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
+import {Row, Col, Container} from "reactstrap";
 import PrivacyModels from "./tables/MetricsPrivacyModel";
 
 const anonymizeResult = props => {
