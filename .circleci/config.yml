@@ -1,0 +1,35 @@
+docker:
+  - image: circleci/node:8
+
+version: 2
+jobs:
+  prepare:
+    - checkout
+    - run npm install
+    - persist_to_workspace:
+        root: .
+        paths:
+          - node_modules
+  build:
+   gitsteps:
+    - checkout
+      - attach_workspace:
+          at: .
+      - run: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+
+
+workflows:
+  version: 2
+  build_accept_deploy:
+    jobs:
+      - prepare
+      - build:
+       requires:
+        -prepare
+        
+          
+
