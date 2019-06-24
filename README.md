@@ -6,6 +6,8 @@
 
 Web client created with [Create-react-app](https://github.com/facebook/create-react-app) for [ARXaaS](https://github.com/navikt/ARXaaS)
 
+![alt text](https://user-images.githubusercontent.com/22790770/60017679-a2f28700-9689-11e9-957a-32b335893fb9.png "Example gui picture")
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
