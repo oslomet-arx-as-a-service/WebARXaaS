@@ -1,5 +1,7 @@
+version: 2.1 
+orbs:
+  nais: 'navikt/nais-deployment@1.1.0'
 
-version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     docker: # run the steps with Docker
@@ -22,5 +24,22 @@ jobs: # a collection of steps
       - run: # run tests
           name: test
           command: npm test
+      - run:
+          name: build
+          command: npm build
+
+
+workflow:
+  deploy-docker-and-nais:
+    jobs:
+      - nais/deploy:
+          context: NAIS deployment     # gives you $DOCKER_USERNAME and $DOCKER_PASSWORD
+          repo: navikt/WebARXaaS
+          image: navikt/WebARXaaS
+          github-app-id: 1337          # when authenticating as a Github application
+          nais-template: nais.yaml
+          environment: dev-fss
+          team: team-anonymization          # needs to be identical in Kubernetes and Github
+      
           
 
