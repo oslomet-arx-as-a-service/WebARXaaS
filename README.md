@@ -4,7 +4,7 @@
 
 # WEBARXaaS - Web client for Anonymization as a Service
 
-Web client created with [Create-react-app](https://github.com/facebook/create-react-app) for [ARXaaS](https://github.com/navikt/ARXaaS)
+Web client created with [Create-react-app](https://github.com/facebook/create-react-app) for interaction with [ARXaaS](https://github.com/navikt/ARXaaS)
 
 ![alt text](https://user-images.githubusercontent.com/22790770/60018206-03ce8f00-968b-11e9-8b56-55b8d2bbeb5a.png "Example gui picture")
 
