@@ -1,6 +1,6 @@
 version: 2.1 
 orbs:
-  nais: 'navikt/nais-deployment@1.1.0'
+  nais: 'navikt/nais-deployment@1.1.1'
 
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
@@ -36,7 +36,7 @@ workflow:
           context: NAIS deployment     # gives you $DOCKER_USERNAME and $DOCKER_PASSWORD
           repo: navikt/WebARXaaS
           image: navikt/WebARXaaS
-          github-app-id: 1337          # when authenticating as a Github application
+  #        github-app-id: 1337          # when authenticating as a Github application
           nais-template: nais.yaml
           environment: dev-fss
           team: team-anonymization          # needs to be identical in Kubernetes and Github
