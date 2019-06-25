@@ -9,7 +9,7 @@ const PrivacyModelManager = (props) => {
         </div>
     );
 
-    const {handlePrivacyAdd, handlePrivacyRemove } = props;
+    const {handlePrivacyAdd } = props;
     const [selectedPrivacyModel, setSelectedPrivacyModel] = useState('KANONYMITY');
     const [param, setParam] = useState("{}");
     const [paramForm, setParamForm] = useState(kanonymity);

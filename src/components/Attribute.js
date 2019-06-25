@@ -18,7 +18,7 @@ const Attribute = props => {
                         }
                         }
                     >
-                        <option defaultValue value="QUASIIDENTIFYING">Quasi-identifying</option>
+                        <option defaultValue value={currentSelected}>Quasi-identifying</option>
                         <option value="INSENSITIVE">Insensitive</option>
                         <option value="SENSITIVE">Sensitive</option>
                         <option value="IDENTIFYING">Identifying</option>
