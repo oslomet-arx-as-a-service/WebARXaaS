@@ -5,14 +5,15 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "browserslist": "4.6.2",
-    "caniuse-lite": "^1.0.30000974",
+    "caniuse-lite": "^1.0.30000985",
     "jquery": "^3.4.1",
+    "lodash": "^4.17.13",
     "papaparse": "^4.6.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
     "react-table": "^6.10.0",
-    "reactstrap": "^8.0.0"
+    "reactstrap": "^8.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
