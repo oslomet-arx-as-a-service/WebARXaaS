@@ -1572,3 +1572,15 @@ patch:
         patched: '2019-08-20T22:38:10.327Z'
     - react-scripts > jest > jest-cli > @jest/core > @jest/reporters > jest-runtime > jest-config > @jest/test-sequencer > jest-runner > jest-jasmine2 > @jest/environment > @jest/transform > babel-plugin-istanbul > istanbul-lib-instrument > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
         patched: '2019-08-20T22:38:10.327Z'
+    - snyk > inquirer > lodash:
+        patched: '2019-08-30T22:40:02.051Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2019-08-30T22:40:02.051Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-08-30T22:40:02.051Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-08-30T22:40:02.051Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-08-30T22:40:02.051Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2019-08-30T22:40:02.051Z'
