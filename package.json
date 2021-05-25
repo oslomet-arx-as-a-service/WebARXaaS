@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "browserslist": "4.6.2",
+    "browserslist": "4.16.5",
     "caniuse-lite": "^1.0.30000974",
     "jquery": "^3.4.1",
     "papaparse": "^4.6.3",
@@ -30,11 +30,11 @@
     "not op_mini all"
   ],
   "resolutions": {
-    "browserslist": "4.6.2",
+    "browserslist": "4.16.5",
     "caniuse-lite": "1.0.30000974"
   },
   "devDependencies": {
-    "browserslist": "4.6.2"
+    "browserslist": "4.16.5"
   },
   "snyk": true
 }
